@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ObtainStudents</string>
+
+    <string name="get_student_info">获取学员</string>
+    <string name="request_get_info">Get请求</string>
+    <string name="request_post_info">Post请求</string>
+    <string name="upload_file_info">上传文件</string>
+    <string name="download_file_info">下载文件</string>
+    <string name="download_file_break_point_info">断点续传</string>
+
+    <!-- Download manager -->
+    <string name="download_pitch_point">bytes=%d-</string>
+
+    <!-- breakpoint down activity -->
+    <string name="start_down_info">开始下载</string>
+    <string name="stop_down_info">暂停下载</string>
+</resources>

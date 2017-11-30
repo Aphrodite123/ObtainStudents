@@ -1,0 +1,67 @@
+apply plugin: 'com.android.application'
+
+android {
+  compileSdkVersion 24
+  buildToolsVersion "24.0.2"
+
+  packagingOptions {
+    exclude 'META-INF/LICENSE'
+    exclude 'META-INF/rxjava.properties'
+  }
+
+  defaultConfig {
+    applicationId "com.aphrodite.obtainstudents"
+    minSdkVersion 19
+    targetSdkVersion 24
+    versionCode 1
+    versionName "1.0"
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    multiDexEnabled true
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+  apply plugin: 'org.greenrobot.greendao'
+  /**
+   * 针对greenDao的一些配置
+   */
+  greendao {
+    schemaVersion 1 //数据库版本号
+    daoPackage 'com.usher.greendao_demo.greendao.gen' //自动生成的工具类的包名
+    targetGenDir 'src/main/java' //路径
+  }
+  productFlavors {
+  }
+}
+
+dependencies {
+  compile fileTree(include: ['*.jar'], dir: 'libs')
+  androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    exclude group: 'com.android.support', module: 'support-annotations'
+  })
+  compile 'com.android.support:appcompat-v7:24.2.1'
+  testCompile 'junit:junit:4.12'
+  /**
+   * retrofit
+   */
+  compile 'com.squareup.retrofit2:retrofit:2.1.0'
+  compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+  compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+  compile 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
+  /**
+   * 注解
+   */
+  compile 'com.jakewharton:butterknife-compiler:8.5.1'
+  compile 'com.jakewharton:butterknife:8.5.1'
+  /**
+   * greendao依赖
+   */
+  compile 'org.greenrobot:greendao:3.2.0'
+  compile 'io.reactivex.rxjava2:rxjava:2.1.0'
+  compile 'io.reactivex:rxandroid:1.2.1'
+}
